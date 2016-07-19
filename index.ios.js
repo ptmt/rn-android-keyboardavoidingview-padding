@@ -8,25 +8,30 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
+  View,
   Text,
-  View
+  ScrollView,
+  TextInput,
+  KeyboardAvoidingView,
 } from 'react-native';
 
 class keyboard extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.ios.js
-        </Text>
-        <Text style={styles.instructions}>
-          Press Cmd+R to reload,{'\n'}
-          Cmd+D or shake for dev menu
-        </Text>
-      </View>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <View style={{flex: 1, backgroundColor: 'green'}}>
+            <Text style={styles.welcome}>
+              Welcome to React Native!
+            </Text>
+            <Text style={styles.instructions}>
+              To get started, edit index.android.js
+            </Text>
+            <Text style={styles.instructions}>
+              Shake or press menu button for dev menu
+            </Text>
+        </View>
+        <TextInput style={styles.textInput} placeholder={'Click me'} />
+      </KeyboardAvoidingView>
     );
   }
 }
@@ -34,7 +39,7 @@ class keyboard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
@@ -48,6 +53,11 @@ const styles = StyleSheet.create({
     color: '#333333',
     marginBottom: 5,
   },
+  textInput: {
+    width: 300,
+    height: 50,
+    backgroundColor: 'white',
+  }
 });
 
 AppRegistry.registerComponent('keyboard', () => keyboard);

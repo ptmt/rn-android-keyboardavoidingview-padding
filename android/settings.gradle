@@ -1,0 +1,3 @@
+rootProject.name = 'keyboard'
+
+include ':app'
